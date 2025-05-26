@@ -1,0 +1,95 @@
+/* Header styles */
+.header {
+  background-color: var(--royal-purple);
+  color: var(--golden-yellow);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.nav {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.nav a,
+.logout-button {
+  color: var(--golden-yellow);
+  background-color: var(--deep-purple);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav a:hover,
+.logout-button:hover {
+  background-color: var(--btn-bg);
+  color: var(--text-light);
+}
+
+.logout-button {
+  background-color: var(--btn-bg);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle .hamburger {
+  width: 25px;
+  height: 3px;
+  background-color: var(--golden-yellow);
+  border-radius: 2px;
+}
+
+/* Responsive Nav for mobile */
+@media (max-width: 700px) {
+  .nav {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    background-color: var(--deep-purple);
+    flex-direction: column;
+    width: 200px;
+    height: calc(100% - 60px);
+    padding: 1rem;
+    gap: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav.nav-open {
+    transform: translateX(0);
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}

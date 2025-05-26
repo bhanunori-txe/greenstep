@@ -1,0 +1,253 @@
+/* index.css */
+
+/* Reset & base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #2C2E4A; /* Deep royal blue */
+  color: #E0E6F8; /* Light text */
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+a {
+  color: #6a0dad; /* Purple accent */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #520f7f; /* Darker purple */
+}
+
+button {
+  background-color: #6a0dad;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #520f7f;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  background-color: #393E6A; /* Slightly lighter royal blue */
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Form inputs and selects */
+input, select, textarea {
+  background-color: #494F80;
+  border: 1px solid #6a0dad;
+  color: #E0E6F8;
+  padding: 8px;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #bbb;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #520f7f;
+  box-shadow: 0 0 5px #520f7f;
+}
+
+/* CO2Scorecard specific styles */
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.App .card {
+  flex: 1 1 300px;
+  min-width: 280px;
+  background-color: #4B4F82; /* Slightly lighter for scorecard */
+  color: #E0E6F8;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.App .card h2 {
+  margin-bottom: 15px;
+  font-weight: 700;
+  border-bottom: 2px solid #6a0dad;
+  padding-bottom: 5px;
+}
+
+.App .card p {
+  margin: 10px 0;
+}
+
+.App .card ul {
+  padding-left: 0;
+}
+
+.App .card ul li {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.App .card ul li svg {
+  flex-shrink: 0;
+}
+
+/* Electricity Usage Chart container */
+.App .card > div[style] {
+  background-color: #3a3e65;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* Tooltip styling for Recharts */
+.recharts-tooltip-wrapper {
+  font-size: 0.9rem !important;
+  background-color: #333 !important;
+  border-color: #555 !important;
+  color: #fff !important;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+  .App {
+    flex-direction: column;
+  }
+  .App .card {
+    min-width: 100%;
+  }
+}
+/* HEADER STYLES */
+.header {
+  background-color: #1f2235;
+  padding: 16px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Navigation links */
+.nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav a {
+  color: #E0E6F8;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #aaa;
+}
+
+.logout-button {
+  background-color: #e63946;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.logout-button:hover {
+  background-color: #c71c2c;
+}
+
+/* Mobile Menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #1f2235;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    width: 200px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .nav.nav-open {
+    transform: translateX(0);
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
